@@ -29,3 +29,8 @@ void main()
 
 
 
+int randNum(){
+	srand(time());
+	return (rand() % 4);
+}
+

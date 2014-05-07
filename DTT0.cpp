@@ -1,10 +1,12 @@
+#include <cstdlib>
 #include <iostream>
-#include <stdlib>
 #include <cstdio>
-#include <board.h>
+#include <string>
+//#include <board.h>
 
 
-
+using std::string;
+using std::atoi;
 
 /* random number generator selects one as 1
  * supress user io on screen and avoide enter usage
@@ -15,22 +17,38 @@
  * end game
  */
 
-void main()
+int main(int argc, char* args[])
 {
 	time_t currentTime = time(0);
-	char* currentTimePt = localtime(&currentTime); //get current time structure
+	tm* currentTimePt = localtime(&currentTime); //get current time structure
+	int i = 1;
+/*	while( i < argc)
+	{
+		std::cout << args[i] <<std::endl;
+		i++;
+	}
+*/	int lim = atoi(args[1]); 
+	while(i < lim)
+	{
+		currentTime = time(0);
+		currentTimePt = localtime(&currentTime);
+		printf("Test: %d \r", currentTimePt -> tm_sec);
+		i++;
+	}	
+	printf("\n");
+	currentTimePt -> tm_hour;
+	//dt -> tm_min;
+	//dt -> tm_sec;
 	
-	dt -> tm_hour;
-	dt -> tm_min;
-	dt -> tm_sec;
-	
-
+	return 0;
 }
-
 
 
 int randNum(){
-	srand(time());
+	//srand(time());
 	return (rand() % 4);
 }
+
+
+
 

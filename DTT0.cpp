@@ -1,3 +1,6 @@
+#ifndef DTT0_CPP
+#define DTT0_CPP
+
 #include <cstdlib>
 #include <iostream>
 #include <cstdio>
@@ -26,7 +29,7 @@ int main(int argc, char* args[])
 	int i = 1;
 	int state = 1;
 	board myboard(4);
-	gamemodeA mygamemodeA();
+	gamemodeA mygamemodeA;
 	bool validin = 1;
 	int in = 0;
 //	int lim = atoi(args[1]); 
@@ -35,7 +38,7 @@ int main(int argc, char* args[])
 	while(1)
 	{
 		currentTime = time(0);
-		myboard.printBoard();
+		myboard.printBoard(mygamemodeA.getScore());
 		printf("                     \n");
 		printf("==================== \n");
 		runTime = currentTime - currTime;
@@ -64,4 +67,4 @@ int main(int argc, char* args[])
 
 
 
-
+#endif

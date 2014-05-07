@@ -1,3 +1,6 @@
+#ifndef GAMEMODEA_H
+#define GAMEMODEA_h
+
 #include <err.h>
 #include <cstdio>
 #include <iostream>
@@ -14,12 +17,18 @@ private:
 public:
 	gamemodeA();
 	void runGame(int & state,board b,int userinput);
+	int getScore();
 };
 
 gamemodeA::gamemodeA()
 {
 //blank initilization
 score=0;
+}
+
+int gamemodeA::getScore()
+{
+	return score;
 }
 
 void gamemodeA::runGame(int & state, board b,int userinput)
@@ -59,3 +68,4 @@ void gamemodeA::runGame(int & state, board b,int userinput)
 
 
 
+#endif

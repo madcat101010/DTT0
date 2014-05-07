@@ -1,3 +1,6 @@
+#ifndef BOARD_H
+#define BOARD_H
+
 #include <err.h>
 #include <cstdio>
 #include <iostream>
@@ -69,3 +72,5 @@ int board::randNum()
         //srand(time());
         return (1 + (rand() % 4));
 }
+
+#endif

@@ -53,7 +53,6 @@ void board::updateBoard()
 		array[i] = 0;
 	}	
 	array[randNum()] = 1;
-
 }
 
 //Check if there is 1 at the index, return true if index is at one 

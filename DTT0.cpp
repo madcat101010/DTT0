@@ -32,16 +32,10 @@ int main(int argc, char* args[])
 */
 	bool validin = 1;
 	int in = 0;
-	int delay = 100000000;
 	int lim = atoi(args[1]); 
 	printf("\n");
 	while(i < lim)
 	{
-		while (delay > 1)
-		{
-			delay--;
-		}
-		delay = 100000000;
 		currentTime = time(0);
 		printf("0100                 \n");
 		printf("                     \n");

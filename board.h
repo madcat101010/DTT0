@@ -15,7 +15,7 @@ private:
 public:
 	board(int nsize);//contruct board with n number of size
 	int getSize();	 //return the size of the board
-	int printBoard(int score);//print the board in the ternimal
+	void printBoard(int score);//print the board in the ternimal
 	void updateBoard();//use rand to put one 1 to the board array
 	bool istheoneat(int index);//Description below
 	int randNum();
@@ -35,7 +35,7 @@ int board::getSize()
 }
 
 //print the board on the terminal and the input score
-int board::printBoard(int score)
+void board::printBoard(int score)
 {
 	for (int k=0;k<size;k++)
 	{
@@ -53,7 +53,6 @@ void board::updateBoard()
 		array[i] = 0;
 	}	
 	array[randNum()] = 1;
-i
 }
 
 //Check if there is 1 at the index, return true if index is at one 
@@ -65,7 +64,7 @@ bool board::istheoneat(int index)
 }
 
 //creates random number 
-int randNum()
+int board::randNum()
 {
         //srand(time());
         return (1 + (rand() % 4));

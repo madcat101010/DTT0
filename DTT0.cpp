@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdio>
 #include <string>
-//#include <board.h>
+#include "board.h"
 
 
 using std::string;

@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <iomanip>
-
+#include <cstdlib>
 
 class board
 {
@@ -69,8 +69,8 @@ bool board::istheoneat(int index)
 //creates random number 
 int board::randNum()
 {
-        //srand(time());
-        return (1 + (rand() % 4));
+        srand(time(0));
+        return ( (rand() % 4));
 }
 
 #endif

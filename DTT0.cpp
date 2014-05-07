@@ -27,15 +27,29 @@ int main(int argc, char* args[])
 		std::cout << args[i] <<std::endl;
 		i++;
 	}
-*/	int lim = atoi(args[1]); 
+*/	
+	int delay = 100000000;
+	int lim = atoi(args[1]); 
+	printf("\n");
 	while(i < lim)
 	{
+		while (delay > 1)
+		{
+			delay--;
+		}
+		delay = 100000000;
 		currentTime = time(0);
+		printf("0100              \n");
+		printf("                  \n");
+		printf("================= \n");
 		currentTimePt = localtime(&currentTime);
-		printf("Test: %d \r", currentTimePt -> tm_sec);
+		printf("Test: %d \n\r", currentTimePt -> tm_sec);
+		printf("\033[F\033[F");
+		printf("\033[F");
 		i++;
 	}	
-	printf("\n");
+	printf("\n\n\n");
+	
 	currentTimePt -> tm_hour;
 	//dt -> tm_min;
 	//dt -> tm_sec;

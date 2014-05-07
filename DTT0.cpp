@@ -24,12 +24,7 @@ int main(int argc, char* args[])
 	int runTime = 0; //subtract this with current time to get how long game was running
 	tm* currentTimePt = localtime(&currentTime); //get current time structure
 	int i = 1;
-/*	while( i < argc)
-	{
-		std::cout << args[i] <<std::endl;
-		i++;
-	}
-*/
+	board myboard(4);
 	bool validin = 1;
 	int in = 0;
 	int lim = atoi(args[1]); 

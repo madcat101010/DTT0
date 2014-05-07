@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <string>
 #include "board.h"
-#include <poll.h>
+#include "gamemodeA.h"
 
 using std::string;
 using std::atoi;
@@ -24,15 +24,18 @@ int main(int argc, char* args[])
 	int runTime = 0; //subtract this with current time to get how long game was running
 	tm* currentTimePt = localtime(&currentTime); //get current time structure
 	int i = 1;
+	int state = 1;
 	board myboard(4);
+	gamemodeA mygamemodeA();
 	bool validin = 1;
 	int in = 0;
-	int lim = atoi(args[1]); 
+//	int lim = atoi(args[1]); 
 	printf("\n");
-	while(i < lim)
+	myboard.updateBoard();
+	while(1)
 	{
 		currentTime = time(0);
-		printf("0100                 \n");
+		myboard.printBoard();
 		printf("                     \n");
 		printf("==================== \n");
 		runTime = currentTime - currTime;
@@ -40,6 +43,7 @@ int main(int argc, char* args[])
 		printf("Time %d  Input: %d \n", runTime, in);
 		printf("Input: ");
 		std::cin >> in;
+		mygamemodeA.runGame(state, myboard, in);
 		printf("\n\r");
 		printf("\033[F\033[F");
 		printf("\033[F\033[F");

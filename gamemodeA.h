@@ -46,7 +46,7 @@ void gamemodeA::runGame(int & state, board b,int userinput)
 			state=3;
 		}
 	}		
-	else if(state== 2)//updateboard
+	if(state== 2)//updateboard
 	{
 		b.updateBoard();	
 		state=1;

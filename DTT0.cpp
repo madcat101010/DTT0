@@ -51,8 +51,8 @@ int main(int argc, char* args[])
 		printf("\033[F\033[F");
 		printf("\033[F\033[F");
 		i++;
-		if( in < 0 && in > 5)
-			validin = 0;	//invalid input exception!
+		if( state == 3 )
+			;	//invalid input exception!
 
 	}	
 	printf("\n\n\n\n");

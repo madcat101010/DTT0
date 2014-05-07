@@ -28,7 +28,7 @@ int main(int argc, char* args[])
 		i++;
 	}
 */	int lim = atoi(args[1]); 
-	while(i < lim)
+	while(i < lim)//main loop
 	{
 		currentTime = time(0);
 		currentTimePt = localtime(&currentTime);
@@ -43,11 +43,6 @@ int main(int argc, char* args[])
 	return 0;
 }
 
-
-int randNum(){
-	//srand(time());
-	return (rand() % 4);
-}
 
 
 

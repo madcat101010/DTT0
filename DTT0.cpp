@@ -27,7 +27,8 @@ int main(int argc, char* args[])
 		std::cout << args[i] <<std::endl;
 		i++;
 	}
-*/	
+*/
+	
 	int delay = 100000000;
 	int lim = atoi(args[1]); 
 	printf("\n");
@@ -57,11 +58,6 @@ int main(int argc, char* args[])
 	return 0;
 }
 
-
-int randNum(){
-	//srand(time());
-	return (rand() % 4);
-}
 
 
 

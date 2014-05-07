@@ -18,6 +18,7 @@ public:
 	int printBoard(int score);//print the board in the ternimal
 	void updateBoard();//use rand to put one 1 to the board array
 	bool istheoneat(int index);//Description below
+	int randNum();
 };
 
 //initialize array with nsize, normally it would be 4
@@ -46,7 +47,13 @@ int board::printBoard(int score)
 //use rand to put a 1 to the array
 void board::updateBoard()
 {
-
+	//make array 0's
+	for (int i = 0; i<size; i++)
+	{
+		array[i] = 0;
+	}	
+	array[randNum()] = 1;
+i
 }
 
 //Check if there is 1 at the index, return true if index is at one 
@@ -55,4 +62,11 @@ bool board::istheoneat(int index)
 	if (array[index]==1)
 		return true;
 	return false;	
+}
+
+//creates random number 
+int randNum()
+{
+        //srand(time());
+        return (1 + (rand() % 4));
 }

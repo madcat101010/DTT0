@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <string>
 #include "board.h"
-
+#include <poll.h>
 
 using std::string;
 using std::atoi;
@@ -30,7 +30,8 @@ int main(int argc, char* args[])
 		i++;
 	}
 */
-	
+	bool validin = 1;
+	int in = 0;
 	int delay = 100000000;
 	int lim = atoi(args[1]); 
 	printf("\n");
@@ -42,17 +43,23 @@ int main(int argc, char* args[])
 		}
 		delay = 100000000;
 		currentTime = time(0);
-		printf("0100              \n");
-		printf("                  \n");
-		printf("================= \n");
+		printf("0100                 \n");
+		printf("                     \n");
+		printf("==================== \n");
 		runTime = currentTime - currTime;
 		currentTimePt = localtime(&currentTime);
-		printf("Test: %d \n\r", runTime);
+		printf("Time %d  Input: %d \n", runTime, in);
+		printf("Input: ");
+		std::cin >> in;
+		printf("\n\r");
 		printf("\033[F\033[F");
-		printf("\033[F");
+		printf("\033[F\033[F");
 		i++;
+		if( in < 0 && in > 5)
+			validin = 0;	//invalid input exception!
+
 	}	
-	printf("\n\n\n");
+	printf("\n\n\n\n");
 	
 	currentTimePt -> tm_hour;
 	//dt -> tm_min;

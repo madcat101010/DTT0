@@ -11,7 +11,7 @@ class board
 {
 private:
 	int size;
-	int array[];
+	int* array;
 public:
 	board(int nsize);//contruct board with n number of size
 	int getSize();	 //return the size of the board
@@ -25,7 +25,7 @@ public:
 board::board(int nsize)
 {
 	size=nsize;
-	array[size];
+	array=new int[10];
 }
 
 //neat function to have

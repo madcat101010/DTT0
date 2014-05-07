@@ -20,6 +20,8 @@ using std::atoi;
 int main(int argc, char* args[])
 {
 	time_t currentTime = time(0);
+	int currTime = currentTime;	//store currrent time in an int as time_t will always be up to date
+	int runTime = 0; //subtract this with current time to get how long game was running
 	tm* currentTimePt = localtime(&currentTime); //get current time structure
 	int i = 1;
 /*	while( i < argc)
@@ -43,8 +45,9 @@ int main(int argc, char* args[])
 		printf("0100              \n");
 		printf("                  \n");
 		printf("================= \n");
+		runTime = currentTime - currTime;
 		currentTimePt = localtime(&currentTime);
-		printf("Test: %d \n\r", currentTimePt -> tm_sec);
+		printf("Test: %d \n\r", runTime);
 		printf("\033[F\033[F");
 		printf("\033[F");
 		i++;

@@ -39,13 +39,14 @@ int main(int argc, char* args[])
 	{
 		currentTime = time(0);
 		myboard.printBoard(mygamemodeA.getScore());
-		printf("                     \n");
-		printf("==================== \n");
+		printf("                       \n");
+		printf("=======================\n");
 		runTime = currentTime - currTime;
 		currentTimePt = localtime(&currentTime);
 		printf("Time %d  Input: %d \n", runTime, in);
 		printf("Input: ");
 		std::cin >> in;
+		in--;
 		mygamemodeA.runGame(state, myboard, in);
 		printf("\n\r");
 		printf("\033[F\033[F");

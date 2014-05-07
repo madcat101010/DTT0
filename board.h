@@ -44,7 +44,7 @@ void board::printBoard(int score)
 	{
 		std::cout<<array[k]<<" ";		
 	}
-	std::cout<<"    Score:"<<score<<std::endl;
+	std::cout<<"    Score:"<<score<< "     " <<std::endl;
 }
 
 //use rand to put a 1 to the array

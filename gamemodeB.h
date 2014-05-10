@@ -1,4 +1,3 @@
-
 #include <err.h>
 #include <cstdio>
 #include <iostream>
@@ -14,17 +13,17 @@ private:
 	int score;
 public:
 	gamemodeB();
-	void runGame(int & state, boad b, int userinput, int time);
+	void runGame(int & state, board b, int userinput, int time);
 	int getScore();
 
 };
 
 gamemodeB::gamemodeB()
 {
-score=0;
+
 }
 
-int gamemodeB::geScore()
+int gamemodeB::getScore()
 {
 return score;
 }

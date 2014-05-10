@@ -14,7 +14,7 @@ int option()
         char gamemodeinput;
         while(gamemode == 0)
         {
-                printf("Chose a gamemode: \n A. Gamemode A \n B. Gamemode B \n Q: Quit \n");
+                printf("Chose a gamemode: \n A: Freerun \n B: Classic \n C: Relay \n Q: Quit \n");
                 std::cin >> gamemodeinput;
                 std::cin.ignore();
                 switch(gamemodeinput)
@@ -27,6 +27,10 @@ int option()
                         case 'B':
                                 gamemode = 2;
                                 break;
+			case 'c':
+			case 'C':
+				gamemode = 3;
+				break;
                         case 'q':
                         case 'Q':
                                 gamemode = -1;

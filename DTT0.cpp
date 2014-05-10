@@ -1,8 +1,12 @@
+#ifndef DTT0_CPP
+#define DTT0_CPP
+
 #include <cstdlib>
 #include <iostream>
 #include <cstdio>
 #include <string>
 #include "board.h"
+#include "options.h"
 #include "gamemodeA.h"
 
 using std::string;
@@ -19,49 +23,47 @@ using std::atoi;
 
 int main(int argc, char* args[])
 {
+	int gamemode = 0;
+	gamemode = option();
 	time_t currentTime = time(0);
-	int currTime = currentTime;	//store currrent time in an int as time_t will always be up to date
+	int startTime = currentTime;	//store currrent time in an int as time_t will always be up to date
 	int runTime = 0; //subtract this with current time to get how long game was running
 	tm* currentTimePt = localtime(&currentTime); //get current time structure
 	int i = 1;
 	int state = 1;
 	board myboard(4);
-	gamemodeA mygamemodeA();
+	gamemodeA mygamemodeA;
 	bool validin = 1;
 	int in = 0;
 //	int lim = atoi(args[1]); 
 	printf("\n");
 	myboard.updateBoard();
-	while(1)
+	while(gamemode == 1)
 	{
 		currentTime = time(0);
-		myboard.printBoard();
-		printf("                     \n");
-		printf("==================== \n");
-		runTime = currentTime - currTime;
+		myboard.printBoard(mygamemodeA.getScore());
+		printf("                       \n");
+		printf("=======================\n");
+		runTime = currentTime - startTime;
 		currentTimePt = localtime(&currentTime);
 		printf("Time %d  Input: %d \n", runTime, in);
 		printf("Input: ");
 		std::cin >> in;
+		in--;
 		mygamemodeA.runGame(state, myboard, in);
 		printf("\n\r");
 		printf("\033[F\033[F");
 		printf("\033[F\033[F");
 		i++;
-		if( in < 0 && in > 5)
-			validin = 0;	//invalid input exception!
+		if( state == 3 )
+			;	//invalid input exception!
 
 	}	
-	printf("\n\n\n\n");
-	
-	currentTimePt -> tm_hour;
-	//dt -> tm_min;
-	//dt -> tm_sec;
-	
-	return 0;
+	if(gamemode != -1)	//don't cancel out the go up line if we quit instead of play a game
+		printf("\n\n\n\n");
 }
 
 
 
 
-
+#endif

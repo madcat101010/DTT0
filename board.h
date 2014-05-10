@@ -1,3 +1,6 @@
+#ifndef BOARD_H
+#define BOARD_H
+
 #include <err.h>
 #include <cstdio>
 #include <iostream>
@@ -5,7 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <iomanip>
-
+#include <cstdlib>
 
 class board
 {
@@ -41,7 +44,7 @@ void board::printBoard(int score)
 	{
 		std::cout<<array[k]<<" ";		
 	}
-	std::cout<<"    Score:"<<score<<std::endl;
+	std::cout<<"    Score:"<<score<< "     " <<std::endl;
 }
 
 //use rand to put a 1 to the array
@@ -66,6 +69,8 @@ bool board::istheoneat(int index)
 //creates random number 
 int board::randNum()
 {
-        //srand(time());
-        return (1 + (rand() % 4));
+        srand(time(0));
+        return ( (rand() % 4));
 }
+
+#endif

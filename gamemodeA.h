@@ -14,12 +14,18 @@ private:
 public:
 	gamemodeA();
 	void runGame(int & state,board b,int userinput);
+	int getScore();
 };
 
 gamemodeA::gamemodeA()
 {
 //blank initilization
 score=0;
+}
+
+int gamemodeA::getScore()
+{
+return score;
 }
 
 void gamemodeA::runGame(int & state, board b,int userinput)

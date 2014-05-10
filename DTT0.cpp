@@ -8,6 +8,8 @@
 #include "board.h"
 #include "options.h"
 #include "gamemodeA.h"
+#include "gamemodeB.h"
+#include "gamemodeC.h"
 
 using std::string;
 using std::atoi;
@@ -25,32 +27,45 @@ int main(int argc, char* args[])
 {
 	int gamemode = 0;
 	gamemode = option();
-	time_t currentTime = time(0);
+	time_t currentTimet = time(0);
+	int currentTime = currentTimet;
 	int startTime = currentTime;	//store currrent time in an int as time_t will always be up to date
 	int runTime = 0; //subtract this with current time to get how long game was running
-	tm* currentTimePt = localtime(&currentTime); //get current time structure
+	tm* currentTimePt = localtime(&currentTimet); //get current time structure
 	int i = 1;
 	int state = 1;
 	board myboard(4);
 	gamemodeA mygamemodeA;
+	gamemodeB mygamemodeB;
+	gamemodeC mygamemodeC;
 	bool validin = 1;
 	int in = 0;
 //	int lim = atoi(args[1]); 
 	printf("\n");
 	myboard.updateBoard();
-	while(gamemode == 1)
+	while(gamemode > 0)
 	{
 		currentTime = time(0);
-		myboard.printBoard(mygamemodeA.getScore());
+		if (gamemode == 1)
+			myboard.printBoard(mygamemodeA.getScore());
+		else if (gamemode == 2)
+			myboard.printBoard(mygamemodeB.getScore());
+                else if (gamemode == 3)
+                        myboard.printBoard(mygamemodeC.getScore());		
 		printf("                       \n");
 		printf("=======================\n");
 		runTime = currentTime - startTime;
-		currentTimePt = localtime(&currentTime);
-		printf("Time %d  Input: %d \n", runTime, in);
+		currentTimePt = localtime(&currentTimet);
+		printf("Time: %d \n", runTime);
 		printf("Input: ");
 		std::cin >> in;
 		in--;
-		mygamemodeA.runGame(state, myboard, in);
+		if (gamemode == 1)
+			mygamemodeA.runGame(state, myboard, in);
+		else if (gamemode == 2)
+			mygamemodeB.runGame(state, myboard, in, runTime);
+                else if (gamemode == 3)
+                        mygamemodeC.runGame(state, myboard, in, currentTime,startTime);
 		printf("\n\r");
 		printf("\033[F\033[F");
 		printf("\033[F\033[F");

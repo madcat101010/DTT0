@@ -37,7 +37,12 @@ void gamemodeB::runGame(int & state, board b, int userinput,int time)
                         score++;
                         state=2;
                 }
-                else if (!b.istheoneat(userinput)||time>10)
+                else if (!b.istheoneat(userinput))
+		{
+			score--;
+			state = 2;
+		}
+		if (time>=10)
                 {
                         state=3;
                 }

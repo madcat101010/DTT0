@@ -23,6 +23,9 @@ using std::atoi;
  * end game
  */
 
+// We did not use keyEvents due to the requirement of other libraries in linux. We decided that it would add too much 
+// complexity to the code if added, but we will consider implementing it the next time we make a similar game.
+
 int main(int argc, char* args[])
 {
 	int gamemode = 0;

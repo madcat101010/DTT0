@@ -20,7 +20,7 @@ public:
 
 gamemodeB::gamemodeB()
 {
-
+	score = 0;
 }
 
 int gamemodeB::getScore()
